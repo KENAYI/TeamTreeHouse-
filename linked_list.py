@@ -31,7 +31,7 @@ class LinkedList:
         return self.head == None
     
     # function returns the number of nodes in the list
-    # takess O(n) time
+    # takes O(n) time
     def size(self):
         current = self.head
         count = 0
@@ -48,7 +48,21 @@ class LinkedList:
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
+    
+    # Search for the first node containing data that matches the key
+    # Takes O(n) as it has to run through is value looking for key, linear time
+    def search(self, key):
+        current = self.head
         
+        # check that current data matches key
+        while current:
+            if current.data == key:
+                return current
+            else:
+                current = current.next_node
+            # if current doesn't contain value of key, return None
+        return None
+    
     # function returns a string representation of the list
     # takes O(n) time
     def __repr__(self):
@@ -75,6 +89,6 @@ l.add(1)
 l.add(2)
 l.add(3)
 #print(l.size()) 
+print(l.search(2))
 print(l)
-
 # the above print(l) shows that when appending list, data is added to the end moving the previously stored data over to next node
