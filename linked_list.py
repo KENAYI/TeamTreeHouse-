@@ -110,6 +110,21 @@ class LinkedList:
             # returns node or None if key doesn't exist
             return current
     
+    # function created to complement merge_sort_linked_lists py file
+    # returns current node at an index, specifically list's midpoint
+    def node_at_index(self, index):
+        if index == 0:
+            return self.head
+        else:
+            current = self.head 
+            position = 0 # indicates where we are in list
+            
+            while position < index:
+                current = current.next_node
+                position += 1
+            
+            return current
+    
     # function returns a string representation of the list
     # takes O(n) time
     def __repr__(self):
@@ -129,13 +144,13 @@ class LinkedList:
 
 
 # check that LinkedList works
-l = LinkedList()
+#l = LinkedList()
 #N1 = Node(10)
 #l.head = N1
-l.add(1)
-l.add(2)
-l.add(3)
+#l.add(1)
+#l.add(2)
+#l.add(3)
 #print(l.size()) 
-print(l.search(2))
-print(l)
+#print(l.search(2))
+#print(l)
 # the above print(l) shows that when appending list, data is added to the end moving the previously stored data over to next node
